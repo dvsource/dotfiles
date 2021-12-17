@@ -8,9 +8,12 @@
 :set cursorline
 :set nocompatible
 
+
+" _________________________________________________________________________________________________
 " === PLUGINS ===
 
 call plug#begin()
+" :PlugInstall
 
 Plug 'tpope/vim-commentary' "Vim Airline
 Plug 'vim-airline/vim-airline' "Vim Airline
@@ -18,30 +21,28 @@ Plug 'preservim/nerdtree' "NerdTree
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 
 Plug 'justinmk/vim-sneak' "2 char motion
 " Plug 'liuchengxu/vim-which-key' "Emacs hich Key
 Plug 'tpope/vim-surround' "Surround.vim
 Plug 'preservim/tagbar' " Tagbar for code navigation need exuberant-ctags
 Plug 'joshdick/onedark.vim' " One Dark ColorScheme
-Plug 'neoclide/coc.nvim' " Code Auto-Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code Auto-Completion
 Plug 'akinsho/toggleterm.nvim' " Terminal
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
-" === END PLUGINS ===
 
-
+" _________________________________________________________________________________________________
 " === LOCAL VARIABLES ===
 
+" let mapleader=" "
 let g:vimwiki_list = [{'path': '~/documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-let mapleader=" "
 
-" === END LOCAL VARIABLES ===
-
-
+" _________________________________________________________________________________________________
 " Theme
 :colorscheme onedark
 
@@ -50,7 +51,9 @@ filetype plugin on
 syntax on
 
 
+" _________________________________________________________________________________________________
 " === COC CONFIGURATIONS ===
+" :CocInstall coc-json coc-tsserver
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -219,9 +222,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-" === END COC CONFIGURATIONS ===
-
-
+" _________________________________________________________________________________________________
 " === CUSTOM KEY BINDINGS ===
 " <leader> = SPC 
 " :nmap, :nnoremap => normal mode [recursive, non-recursive]
@@ -234,11 +235,13 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <leader>c :e $MYVIMRC
 
 noremap <leader>/ :Commentary<cr>
 noremap <leader>t :ToggleTerm
 
 nmap <F8> :TagbarToggle<CR>
 
-" === END CUSTOM KEY BINDINGS ===
+
+" _________________________________________________________________________________________________
 
