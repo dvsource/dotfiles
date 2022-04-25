@@ -46,6 +46,9 @@ let g:vimwiki_list = [{'path': '~/documents/vimwiki/', 'syntax': 'markdown', 'ex
 " Theme
 :colorscheme onedark
 
+" Transparent Screen
+hi Normal guibg=NONE ctermbg=NONE
+
 " VimWiki
 filetype plugin on
 syntax on
